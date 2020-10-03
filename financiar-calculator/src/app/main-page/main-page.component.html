@@ -1,0 +1,27 @@
+<div class="top-bar">
+    <h1>Financiar Calculator v. 1.0</h1>
+</div>
+
+<!-- <section class="total-budget-section">
+    <h2 [ngClass]="{'green': totalBudget > 0, 'red': totalBudget < 0 }">{{totalBudget}}</h2>
+</section > -->
+<!-- <section class="total-budget-section">
+    <h2 class="green" *ngIf="totalBudget > 0">{{totalBudget}}</h2>
+    <h2 class="red" *ngIf="totalBudget < 0">{{totalBudget}}</h2>
+</section > -->
+<section class="total-budget-section">
+    <h2 [ngClass]="showColor()">{{totalBudget}}</h2>
+</section >
+
+<section class="add-item-section">
+    <div class="add-item-container">
+        <app-add-item-form style="padding: 20px;" (formSubmit)="addItem($event)"></app-add-item-form>
+    </div>
+</section>
+
+<hr style="margin-top:0;">
+
+<!-- List of income/expenses -->
+<app-budget-item-list [budgetItems]="budgetItems" (delete)="deleteItem($event)" (update)="updateItem($event)"></app-budget-item-list>
+
+
